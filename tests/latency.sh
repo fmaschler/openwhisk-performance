@@ -14,4 +14,4 @@ action="noopLatency"
 
 # run latency tests
 encodedAuth=$(echo "$credentials" | base64 -w 0)
-docker run --rm markusthoemmes/loadtest loadtest -n "$samples" -k -m POST -H "Authorization: basic $encodedAuth" "$host/api/v1/namespaces/_/actions/$action?blocking=true"
+docker run --rm markusthoemmes/loadtest loadtest --insecure -n "$samples" -k -m POST -H "Authorization: basic $encodedAuth" "$host/api/v1/namespaces/_/actions/$action?blocking=true"
